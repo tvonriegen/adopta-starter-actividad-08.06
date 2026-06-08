@@ -1,5 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { Perro } from '../../services/perros.service';
+import {
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardSubtitle,
+  IonCardContent,
+  IonChip
+} from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-tarjeta-perro',
@@ -8,7 +16,12 @@ import { Perro } from '../../services/perros.service';
   standalone: true,
   // TODO: importa aquí los componentes de Ionic que uses en el template
   // (por ejemplo IonCard, IonCardHeader, IonCardTitle, IonBadge…).
-  imports: [],
+  imports: [IonCard,
+    IonCardHeader,
+    IonCardTitle,
+    IonCardSubtitle,
+    IonCardContent,
+    IonChip],
 })
 export class TarjetaPerroComponent {
   // La tarjeta recibe el perro desde la página que la use.

@@ -1,8 +1,19 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Galería</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button routerLink="/nuevo">
+        Nuevo
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+  <app-tarjeta-perro
+    *ngFor="let perro of perros"
+    [perro]="perro"
+    [routerLink]="['/detalle', perro.id]">
+  </app-tarjeta-perro>
 </ion-content>

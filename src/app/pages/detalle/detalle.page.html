@@ -1,8 +1,54 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/galeria"></ion-back-button>
+    </ion-buttons>
+
     <ion-title>Detalle</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+
+  <ng-container *ngIf="perro; else noEncontrado">
+
+    <app-tarjeta-perro [perro]="perro"></app-tarjeta-perro>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>Tipo</ion-label>
+        <ion-badge>{{ perro.tipo }}</ion-badge>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Sexo</ion-label>
+        <ion-badge>{{ perro.sexo }}</ion-badge>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Tamaño</ion-label>
+        <ion-badge>{{ perro.tamano }}</ion-badge>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Vacunada/o</ion-label>
+        <ion-badge [color]="perro.vacunada ? 'success' : 'danger'">
+          {{ perro.vacunada ? 'Sí' : 'No' }}
+        </ion-badge>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Estado</ion-label>
+        <ion-badge [color]="perro.adoptado ? 'medium' : 'success'">
+          {{ perro.adoptado ? 'Adoptado' : 'Disponible' }}
+        </ion-badge>
+      </ion-item>
+    </ion-list>
+
+  </ng-container>
+
+  <ng-template #noEncontrado>
+    <p>No se encontró el perro.</p>
+  </ng-template>
+
 </ion-content>

@@ -56,13 +56,16 @@ export class PerrosService {
   ];
 
   todas(): Perro[] {
-    return [];
+    return this.perros;
   }
 
   obtener(id: string): Perro | undefined {
-    return undefined;
+    return this.perros.find(perro => perro.id === Number(id));
   }
 
   agregar(perro: Perro): void {
+    const ultimoId = Math.max(...this.perros.map(perro => perro.id));
+    perro.id = ultimoId + 1;
+    this.perros.push(perro);
   }
 }

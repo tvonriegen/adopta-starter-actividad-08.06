@@ -1,8 +1,73 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/galeria"></ion-back-button>
+    </ion-buttons>
+
     <ion-title>Nuevo perrito</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label position="stacked">Nombre</ion-label>
+      <ion-input [(ngModel)]="perro.nombre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Raza</ion-label>
+      <ion-input [(ngModel)]="perro.raza"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Edad</ion-label>
+      <ion-input [(ngModel)]="perro.edad"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Sexo</ion-label>
+      <ion-select [(ngModel)]="perro.sexo">
+        <ion-select-option value="Macho">Macho</ion-select-option>
+        <ion-select-option value="Hembra">Hembra</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Tamaño</ion-label>
+      <ion-select [(ngModel)]="perro.tamano">
+        <ion-select-option value="Pequeño">Pequeño</ion-select-option>
+        <ion-select-option value="Mediano">Mediano</ion-select-option>
+        <ion-select-option value="Grande">Grande</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Vacunada/o</ion-label>
+      <ion-toggle [(ngModel)]="perro.vacunada"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Adoptado</ion-label>
+      <ion-toggle [(ngModel)]="perro.adoptado"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Descripción</ion-label>
+      <ion-textarea [(ngModel)]="perro.descripcion"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Foto URL</ion-label>
+      <ion-input [(ngModel)]="perro.foto"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-button expand="block" (click)="guardar()">
+    Guardar perrito
+  </ion-button>
+
 </ion-content>
